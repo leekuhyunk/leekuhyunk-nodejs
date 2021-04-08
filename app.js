@@ -102,9 +102,11 @@ const template = multiline(()=>{/*
 </html>
 */});
 //IoT시스템용 라우터(컨트롤러)=API서버 만들기(아래)
+/*
 app.get('/', function(req,res){
 	res.send(template);			
 });
+*/
 app.get('/on', function(req,res){
 	//digitalWrite(11, HIGH); //장비와 연결되었을때 적용
 	res.send("전등 ON");
