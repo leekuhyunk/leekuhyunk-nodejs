@@ -3,6 +3,7 @@
  * 결과 화면 진입점은 http://localhosts:3000/ (사용자 리스트화면)
  * 로그인 : http://localhost:3000/public/login2.html
  * 사용자등록: http://localhost:3000/public/adduser2.html
+ * 기술참조: https://junspapa-itdev.tistory.com/9
  */
 // Express 프레임워크 기본 모듈들 불러오기
 var express = require('express');
@@ -128,7 +129,7 @@ router.route('/process/deleteuser').post(function(req,res) {
                     }
                     if(result.affectedRows > 0) {
                         res.writeHead('200',{'Content-Type':'text/html;charset=utf8'});
-                        res.write('<script>alert("삭제되었습니다.");location.replace("/process/listuser");</script>');
+                        res.write('<script>alert("삭제되었습니다.");location.replace("/");</script>');
                         res.end();
                     }else{
                         res.writeHead('200',{'Content-Type':'text/html;charset=utf8'});
@@ -315,7 +316,7 @@ var allUser = function(callback) { //function(err, result){}
 };
 
 // 사용자 등록 라우터
-router.route('/').post(function(req,res){
+router.route('/process/adduser').post(function(req,res){
     console.log('/process/adduser 호출된.');
     // html 넘어온 데이터를 req받아서 처리(아래)
     var paramId = req.body.id || req.query.id;
