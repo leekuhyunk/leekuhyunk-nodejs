@@ -33,7 +33,7 @@ var app = express()
     socket.on('disconnect',function() {
       console.log(socket.id + ' user 접속끊어짐');
     });
-    socket.on('OnOff', function(jsonMsg) {//1:1통신 받은내용
+    socket.on('OnOff', function(jsonMsg) {//1:1통신 받은내용.
       console.log('소켓으로 받은 메세지는 '+jsonMsg.msg);
       if(jsonMsg.msg == 'updateRender') {
         io.emit('OnOff', jsonMsg);//1:다 통신으로 보냅니다.
